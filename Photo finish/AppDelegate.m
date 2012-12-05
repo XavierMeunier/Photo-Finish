@@ -12,6 +12,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [PFFacebookUtils initializeWithApplicationId:@"290234397764033"];
+    [Parse setApplicationId:@"1jKOp6YtByORRuu00rpNbMKqLkkCVevZb5yqFPyu"
+                  clientKey:@"SDQPsUZp2mu1CjPIER5GU62spGHZ3r1Ay8xEffjg"];
+
     // Override point for customization after application launch.
     return YES;
 }
@@ -41,6 +45,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 @end

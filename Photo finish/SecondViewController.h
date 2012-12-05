@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>{
+    
+    UIImagePickerController *picker;
+    
+}
+
+- (IBAction)prendrePhoto:(id)sender;
 
 @end
